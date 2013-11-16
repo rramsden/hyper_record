@@ -25,6 +25,8 @@ defmodule HyperRecord do
       import Ecto.Query
       import unquote(__MODULE__)
 
+      use HyperRecord.Serializers.JSON
+
       def find(id) do
         id = if is_integer(id) do
           id
@@ -77,21 +79,6 @@ defmodule HyperRecord do
 
       def destroy(entity) do
         unquote(opts[:repo]).delete(entity)
-      end
-
-      def to_json(entity) do
-        mod = __MODULE__
-        attr_readable = mod.attr_readable
-
-        {module, _} = Code.eval_string("#{mod}.Entity")
-        fields = entity.__record__(:fields)
-        fields = Enum.filter Keyword.keys(fields), fn(key) ->
-          module.__entity__(:field_type, key) != nil
-            and Enum.member?(attr_readable, key)
-        end
-        data = Enum.map fields, fn(key) -> {key, to_string(apply(entity, key, []))} end
-        {:ok, json} = JSEX.encode(data)
-        json
       end
 
       defp filter_keylist(keylist, list) do

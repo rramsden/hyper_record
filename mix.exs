@@ -23,7 +23,8 @@ defmodule HyperRecord.Mixfile do
       { :postgrex, github: "ericmj/postgrex" },
       { :ecto, github: "inkr/ecto" },
       { :jsex, github: "talentdeficit/jsex" },
-      { :mock, github: "jjh42/mock" }
+      { :mock, github: "jjh42/mock" },
+      { :meck, github: "eproxus/meck", branch: "develop", override: true }
     ]
   end
 end
