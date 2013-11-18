@@ -61,6 +61,7 @@ defmodule HyperRecord do
       end
 
       def create, do: create([])
+      def create(nil), do: create([])
       def create(params) do
         entity = __MODULE__.new(params)
         entity = entity.update(created_at: HyperRecord.DateTime.utc)
