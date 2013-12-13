@@ -21,10 +21,9 @@ defmodule HyperRecord.Mixfile do
   defp deps do
     [
       { :postgrex, github: "ericmj/postgrex" },
-      { :ecto, github: "inkr/ecto" },
+      { :ecto, github: "elixir-lang/ecto" },
       { :jsex, github: "talentdeficit/jsex" },
-      { :mock, github: "jjh42/mock" },
-      { :meck, github: "eproxus/meck", branch: "develop", override: true }
+      { :amrita, github: "josephwilk/amrita" }
     ]
   end
 end

@@ -19,32 +19,28 @@ defmodule TestModel do
 end
 
 defmodule ModelTest do
-  use ExUnit.Case
-  import Mock
+  use Amrita.Sweet
 
-  test "create" do
-    with_mock Repo,
-      [create: fn(x) -> x end] do
-        assert {:ok, TestModel.new} == TestModel.create
+  fact "create" do
+    provided [Repo.create(_) |> TestModel.new] do
+      {:ok, TestModel.new} |> equals(TestModel.create)
     end
   end
 
-  test "find" do
-    with_mock Repo,
-      [get: fn(_m, id) -> TestModel.new(id: id) end] do
-        assert TestModel.new(id: 1) == TestModel.find(1)
-      end
-  end
-
-  test "destroy" do
-    with_mock Repo,
-      [delete: fn(_x) -> true end] do
-        assert TestModel.destroy(TestModel.new)
+  fact "find" do
+    provided [Repo.get(_, _) |> TestModel.new(id: 1)] do
+      TestModel.new(id: 1) |> equals(TestModel.find(1))
     end
   end
 
-  test "to_json" do
+  fact "destroy" do
+    provided [Repo.delete(_) |> true] do
+      TestModel.destroy(TestModel.new) |> truthy
+    end
+  end
+
+  fact "to_json" do
     model = TestModel.new(test: "working")
-    assert TestModel.to_json(model) == "{\"id\":\"\",\"test\":\"working\"}"
+    TestModel.to_json(model) |> equals("{\"id\":\"\",\"test\":\"working\"}")
   end
 end
