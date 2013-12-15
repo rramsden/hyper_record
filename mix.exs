@@ -21,6 +21,7 @@ defmodule HyperRecord.Mixfile do
   defp deps do
     [
       { :ecto, github: "elixir-lang/ecto" },
+      { :postgrex, github: "ericmj/postgrex", override: true },
       { :jsex, github: "talentdeficit/jsex" },
       { :amrita, github: "josephwilk/amrita" }
     ]
