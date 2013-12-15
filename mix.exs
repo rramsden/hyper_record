@@ -20,7 +20,6 @@ defmodule HyperRecord.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat.git" }
   defp deps do
     [
-      { :postgrex, "~> 0.2.0", [git: "git://github.com/ericmj/postgrex.git", optional: true]},
       { :ecto, github: "elixir-lang/ecto" },
       { :jsex, github: "talentdeficit/jsex" },
       { :amrita, github: "josephwilk/amrita" }
