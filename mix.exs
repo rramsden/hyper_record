@@ -4,7 +4,6 @@ defmodule HyperRecord.Mixfile do
   def project do
     [ app: :hyper_record,
       version: "0.0.1",
-      elixir: "~> 0.11.2-dev",
       deps: deps ]
   end
 
@@ -21,9 +20,7 @@ defmodule HyperRecord.Mixfile do
   defp deps do
     [
       { :ecto, github: "elixir-lang/ecto" },
-      { :postgrex, github: "ericmj/postgrex", override: true },
-      { :jsex, github: "talentdeficit/jsex" },
-      { :amrita, github: "josephwilk/amrita" }
+      { :jsex, github: "talentdeficit/jsex" }
     ]
   end
 end
