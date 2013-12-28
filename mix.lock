@@ -1,4 +1,4 @@
-[ "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "bb2f4d4991bac6aa8fe3508eee55f620d23a13f7", []},
+[ "ecto": {:git, "git://github.com/elixir-lang/ecto.git", "5d7fa3319f49edd66c1fb081479560e826853baf", []},
   "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "1e89a76f770e14bbbd1b5bebfc05312a984f21a4", []},
   "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "e50af6e109cb03bd26acf715cbc77de746507d1d", [{:tag, "v1.4.3"}]},
   "poolboy": {:git, "git://github.com/devinus/poolboy.git", "c2c939b51aba06790ca51fa78b14c254a6ea977d", []} ]
